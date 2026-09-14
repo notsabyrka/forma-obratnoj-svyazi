@@ -8,6 +8,91 @@
     <script src="./js/script.js" defer></script>
   </head>
   <body>
+    <main class="main">
+      <section class="main__content content">
+        <header class="content__header">
+          <h1 class="content__title">Свяжитесь с нашей командой</h1>
+          <p class="content__description">
+            Опишите вопрос как можно подробнее. Это поможет быстрее подобрать специалиста и подготовить ответ.
+          </p>
+        </header>
+        <form class="content__form form" action="https://postman-echo.com/post" method="POST">
+          <div class="form__field field">
+            <label class="field__label" for="name">Имя</label>
+            <input
+              class="field__input"
+              id="name" name="name"
+              placeholder="Иван"
+              required
+            >
+          </div>
 
+          <div class="form__field field">
+            <label class="field__label" for="email">E-mail</label>
+            <input
+              class="field__input"
+              id="email" name="email"
+              placeholder="mail@example.com"
+              type="email"
+              required
+            >
+          </div>
+
+          <div class="form__field field">
+            <label class="field__label" for="subject">E-mail</label>
+            <select
+              class="field__input"
+              id="subject"
+              name="subject"
+              required
+            >
+              <option value="tech">Техническая проблема</option>
+              <option value="billing">Вопрос по оплате</option>
+              <option value="partnership">Сотрудничество</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+
+          <div class="form__field field">
+            <label class="field__label" for="order-number">Номер заказа</label>
+            <input
+              class="field__input"
+              id="order-number"
+              name="order-number"
+              placeholder="123456"
+              type="number"
+              required
+            >
+          </div>
+
+          <div class="form__field field">
+            <label class="field__label" for="message">Сообщение</label>
+            <textarea
+              class="field__input"
+              id="message"
+              name="message"
+              placeholder="Опишите вашу проблему..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form__agreement agreement">
+            <input
+              class="agreement__input"
+              type="checkbox"
+              id="agreement"
+              name="agreement"
+              required
+            >
+            <label class="agreement__label" for="agreement">
+              Я принимаю условия использования сервиса и политику обработки персональных данных.
+            </label>
+          </div>
+
+          <button class="form__button button" type="submit">Отправить</button>
+        </form>
+      </section>
+      <section class="main__info info"></section>
+    </main>
   </body>
 </html>
