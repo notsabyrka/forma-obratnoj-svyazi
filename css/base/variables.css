@@ -1,0 +1,52 @@
+:root {
+  --color-accent-primary: #6f7cff;
+  --color-accent-secondary: #2a3760;
+  --color-accent-light: #eef3ff;
+
+  --color-dark-900: #0d1220;
+  --color-dark-800: #0f1628;
+  --color-dark-700: #151d31;
+
+  --color-slate-700: #2b3656;
+  --color-slate-400: #8b97b8;
+  --color-slate-300: #9ba7c7;
+  --color-slate-200: #c9d2eb;
+
+  --color-white: #ffffff;
+
+  --color-white-alpha-10: rgba(255, 255, 255, 0.1);
+  --color-white-alpha-8: rgba(255, 255, 255, 0.08);
+  --color-slate-300-alpha-92: rgba(155, 167, 199, 0.92);
+
+  --bg-page: var(--color-dark-900);
+  --bg-card: var(--color-dark-800);
+  --bg-input: var(--color-dark-700);
+
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-slate-300-alpha-92);
+  --text-placeholder: var(--color-slate-400);
+
+  --border-input: var(--color-slate-700);
+  --border-subtle: var(--color-white-alpha-8);
+
+  --btn-primary-bg: var(--color-accent-primary);
+  --btn-primary-text: var(--color-white);
+
+  --badge-bg: var(--color-accent-secondary);
+  --badge-text: var(--color-accent-primary);
+
+  --border: 1px solid var(--border-input);
+  --border-radius: 20px;
+  --border-radius-small: 16px;
+  --border-radius-large: 32px;
+
+  --font-family: 'Segoe UI', sans-serif;
+
+  --container-width: 1240px;
+  --container-padding: 20px;
+
+  --input-height: 54px;
+  --button-height: 58px;
+
+  --transition-duration: 0.2s;
+}
