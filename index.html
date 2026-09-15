@@ -40,39 +40,40 @@
           </div>
 
           <div class="form__field field">
-            <label class="field__label" id="subject-label" for="subject-toggle">Тема обращения</label>
-            <div class="field__select select" data-select>
-              <input
-                type="hidden"
-                id="subject"
-                name="subject"
-                value="tech"
-                data-select-input
-              >
+            <label class="field__label" for="subject" id="subject-label">Тема обращения</label>
+
+            <div class="field__select select" data-js-select>
+              <select class="select__original" id="subject" name="subject" required data-js-select-original>
+                <option value="tech" selected>Техническая проблема</option>
+                <option value="billing">Вопрос по оплате</option>
+                <option value="partnership">Сотрудничество</option>
+                <option value="other">Другое</option>
+              </select>
+
               <button
                 class="select__toggle"
-                id="subject-toggle"
                 type="button"
                 aria-haspopup="listbox"
                 aria-expanded="false"
-                aria-labelledby="subject-label subject-toggle"
-                data-select-toggle
+                aria-labelledby="subject-label"
+                data-js-select-toggle
               >
-                <span class="select__current" data-select-current>Техническая проблема</span>
+                <span class="select__current" data-js-select-current>Техническая проблема</span>
                 <img class="select__icon" src="./icons/chevron.svg" alt="" width="16" height="16">
               </button>
-              <div class="select__dropdown" data-select-dropdown>
+
+              <div class="select__dropdown" data-js-select-dropdown>
                 <ul class="select__list" role="listbox">
-                  <li class="select__item select__item--selected" data-value="tech" role="option" aria-selected="true">
+                  <li class="select__item is-selected" data-value="tech" role="option" aria-selected="true" data-js-select-option>
                     Техническая проблема
                   </li>
-                  <li class="select__item" data-value="billing" role="option" aria-selected="false">
+                  <li class="select__item" data-value="billing" role="option" aria-selected="false" data-js-select-option>
                     Вопрос по оплате
                   </li>
-                  <li class="select__item" data-value="partnership" role="option" aria-selected="false">
+                  <li class="select__item" data-value="partnership" role="option" aria-selected="false" data-js-select-option>
                     Сотрудничество
                   </li>
-                  <li class="select__item" data-value="other" role="option" aria-selected="false">
+                  <li class="select__item" data-value="other" role="option" aria-selected="false" data-js-select-option>
                     Другое
                   </li>
                 </ul>
