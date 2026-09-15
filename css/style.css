@@ -3,3 +3,14 @@
 @import 'base/variables.css';
 @import 'base/utils.css';
 @import 'base/globals.css';
+
+@import 'components/main.css';
+@import 'components/content.css';
+@import 'components/form.css';
+@import 'components/field.css';
+@import 'components/select.css';
+@import 'components/agreement.css';
+@import 'components/button.css';
+@import 'components/info.css';
+@import 'components/contacts.css';
+@import 'components/whats-next.css';
