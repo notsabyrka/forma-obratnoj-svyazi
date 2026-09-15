@@ -1,0 +1,9 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  padding: 32px;
+  background-color: #151d31;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-large);
+}
