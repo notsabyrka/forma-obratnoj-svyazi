@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  padding: 40px;
+  background-color: #151d31;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-large);
+}
+
+.content__header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
