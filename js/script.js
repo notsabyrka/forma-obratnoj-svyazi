@@ -1,35 +1,72 @@
-const select = document.querySelector('[data-select]')
-const toggle = select.querySelector('[data-select-toggle]')
-const currentText = select.querySelector('[data-select-current]')
-const hiddenInput = select.querySelector('[data-select-input]')
-const items = select.querySelectorAll('.select__item')
+class HybridSelect {
+  constructor(rootElement) {
+    this.root = rootElement
+    this.originalSelect = this.root.querySelector('[data-js-select-original]')
+    this.toggleButton = this.root.querySelector('[data-js-select-toggle]')
+    this.currentText = this.root.querySelector('[data-js-select-current]')
+    this.options = Array.from(this.root.querySelectorAll('[data-js-select-option]'))
 
-toggle.addEventListener('click', () => {
-  const isOpen = select.classList.toggle('is-open')
-  toggle.setAttribute('aria-expanded', String(isOpen))
-})
+    this.init()
+  }
 
-items.forEach(item => {
-  item.addEventListener('click', () => {
-    items.forEach(el => {
-      el.classList.remove('select__item--selected')
-      el.setAttribute('aria-selected', 'false')
+  init() {
+    this.toggleButton.addEventListener('click', () => this.toggle())
+
+    this.options.forEach((option) => {
+      option.addEventListener('click', () => this.selectOption(option))
     })
 
-    item.classList.add('select__item--selected')
-    item.setAttribute('aria-selected', 'true')
+    document.addEventListener('click', (e) => {
+      if (!this.root.contains(e.target)) {
+        this.close()
+      }
+    })
 
-    currentText.textContent = item.textContent.trim()
-    hiddenInput.value = item.dataset.value
-
-    select.classList.remove('is-open')
-    toggle.setAttribute('aria-expanded', 'false')
-  })
-})
-
-document.addEventListener('click', (e) => {
-  if (!select.contains(e.target)) {
-    select.classList.remove('is-open')
-    toggle.setAttribute('aria-expanded', 'false')
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.close()
+      }
+    })
   }
+
+  toggle() {
+    const isOpen = this.root.classList.contains('is-open')
+    if (isOpen) {
+      this.close()
+    } else {
+      this.open()
+    }
+  }
+
+  open() {
+    this.root.classList.add('is-open')
+    this.toggleButton.setAttribute('aria-expanded', 'true')
+  }
+
+  close() {
+    this.root.classList.remove('is-open')
+    this.toggleButton.setAttribute('aria-expanded', 'false')
+  }
+
+  selectOption(optionElement) {
+    const val = optionElement.dataset.value
+    const labelText = optionElement.textContent.trim()
+
+    this.originalSelect.value = val
+    this.originalSelect.dispatchEvent(new Event('change', { bubbles: true }))
+
+    this.currentText.textContent = labelText
+
+    this.options.forEach((opt) => {
+      const isSelected = opt === optionElement
+      opt.classList.toggle('is-selected', isSelected)
+      opt.setAttribute('aria-selected', String(isSelected))
+    })
+
+    this.close()
+  }
+}
+
+document.querySelectorAll('[data-js-select]').forEach((el) => {
+  new HybridSelect(el)
 })
