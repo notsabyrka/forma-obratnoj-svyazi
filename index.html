@@ -8,7 +8,7 @@
     <script src="./js/script.js" defer></script>
   </head>
   <body>
-    <main class="main container ">
+    <main class="main container">
       <section class="main__content content">
         <header class="content__header">
           <h1 class="content__title">Свяжитесь с нашей командой</h1>
@@ -39,18 +39,44 @@
           </div>
 
           <div class="form__field field">
-            <label class="field__label" for="subject">E-mail</label>
-            <select
-              class="field__input"
-              id="subject"
-              name="subject"
-              required
-            >
-              <option value="tech">Техническая проблема</option>
-              <option value="billing">Вопрос по оплате</option>
-              <option value="partnership">Сотрудничество</option>
-              <option value="other">Другое</option>
-            </select>
+            <label class="field__label" id="subject-label" for="subject-toggle">Тема обращения</label>
+            <div class="field__select select" data-select>
+              <input
+                type="hidden"
+                id="subject"
+                name="subject"
+                value="tech"
+                data-select-input
+              >
+              <button
+                class="select__toggle"
+                id="subject-toggle"
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-labelledby="subject-label subject-toggle"
+                data-select-toggle
+              >
+                <span class="select__current" data-select-current>Техническая проблема</span>
+                <img class="select__icon" src="./icons/chevron.svg" alt="" width="16" height="16">
+              </button>
+              <div class="select__dropdown" data-select-dropdown>
+                <ul class="select__list" role="listbox">
+                  <li class="select__item select__item--selected" data-value="tech" role="option" aria-selected="true">
+                    Техническая проблема
+                  </li>
+                  <li class="select__item" data-value="billing" role="option" aria-selected="false">
+                    Вопрос по оплате
+                  </li>
+                  <li class="select__item" data-value="partnership" role="option" aria-selected="false">
+                    Сотрудничество
+                  </li>
+                  <li class="select__item" data-value="other" role="option" aria-selected="false">
+                    Другое
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div class="form__field field">
@@ -61,11 +87,13 @@
               name="order-number"
               placeholder="123456"
               type="number"
+              min="1"
+              max="999999"
               required
             >
           </div>
 
-          <div class="form__field field">
+          <div class="form__textarea field">
             <label class="field__label" for="message">Сообщение</label>
             <textarea
               class="field__input"
@@ -78,7 +106,7 @@
 
           <div class="form__agreement agreement">
             <input
-              class="agreement__input"
+              class="agreement__input visually-hidden"
               type="checkbox"
               id="agreement"
               name="agreement"
